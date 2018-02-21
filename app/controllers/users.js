@@ -13,7 +13,7 @@ const User = mongoose.model('User');
  * Load
  */
 
-exports.load = async(function* (req, res, next, _id) {
+exports.load = function (req, res, next, _id) {
   const criteria = { _id };
   try {
     req.profile = User.load({ criteria });
@@ -22,13 +22,13 @@ exports.load = async(function* (req, res, next, _id) {
     return next(err);
   }
   next();
-});
+};
 
 /**
  * Create user
  */
 
-exports.create = async(function* (req, res) {
+exports.create = function (req, res) {
   const user = new User(req.body);
   user.provider = 'local';
   try {
@@ -47,7 +47,7 @@ exports.create = async(function* (req, res) {
       user
     });
   }
-});
+};
 
 /**
  *  Show profile
