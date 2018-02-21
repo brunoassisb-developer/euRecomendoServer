@@ -23,17 +23,17 @@ exports.load = function (req, res, next, id) {
  * Create comment
  */
 
-exports.create = async(function* (req, res) {
+exports.create = function (req, res) {
   const article = req.article;
   yield article.addComment(req.user, req.body);
   respondOrRedirect({ res }, `/articles/${article._id}`, article.comments[0]);
-});
+};
 
 /**
  * Delete comment
  */
 
-exports.destroy = async(function* (req, res) {
+exports.destroy = function (req, res) {
   yield req.article.removeComment(req.params.commentId);
   req.flash('info', 'Removed comment');
   res.redirect('/articles/' + req.article.id);
@@ -41,4 +41,4 @@ exports.destroy = async(function* (req, res) {
     type: 'info',
     text: 'Removed comment'
   });
-});
+};
