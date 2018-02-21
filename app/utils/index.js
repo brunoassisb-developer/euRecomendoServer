@@ -14,12 +14,12 @@ function respond (res, tpl, obj, status) {
   });
 }
 
-function respondOrRedirect ({ req, res }, url = '/', obj = {}, flash) {
-  res.format({
+function respondOrRedirect (resp = { req, res }, url = '/', obj = {}, flash) {
+  resp.res.format({
     html: () => {
-      if (req && flash) req.flash(flash.type, flash.text);
-      res.redirect(url);
+      if (resp.req && flash) resp.req.flash(flash.type, flash.text);
+      resp.res.redirect(url);
     },
-    json: () => res.json(obj)
+    json: () => resp.res.json(obj)
   });
 }
