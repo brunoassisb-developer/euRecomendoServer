@@ -7,8 +7,8 @@
 module.exports = {
   db: 'mongodb://admin:admin123@ds219098.mlab.com:19098/eurecomendo',
   facebook: {
-    clientID: process.env.FACEBOOK_CLIENTID,
-    clientSecret: process.env.FACEBOOK_SECRET,
+    clientID: '176369322980443',
+    clientSecret: '0b22968ab175f065d301ed17b5169bd1',
     callbackURL: 'http://localhost:3000/auth/facebook/callback'
   },
   twitter: {
