@@ -32,8 +32,7 @@ exports.create = function (req, res) {
   const user = new User(req.body);
   user.provider = 'local';
   try {
-	'use strict';
-    yield user.save();
+    user.save();
     req.logIn(user, err => {
       if (err) req.flash('info', 'Sorry! We are not able to log you in!');
       return res.redirect('/');
