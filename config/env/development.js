@@ -27,8 +27,8 @@ module.exports = {
     callbackURL: 'http://localhost:3000/auth/linkedin/callback'
   },
   google: {
-    clientID: process.env.GOOGLE_CLIENTID,
-    clientSecret: process.env.GOOGLE_SECRET,
+    clientID: '196352292341-kfssufhecbp9omal5mm7s477pp86mnmn.apps.googleusercontent.com',
+    clientSecret: 'UHL5w_pBz9qc-OWeXJWPHnqr',
     callbackURL: 'http://localhost:3000/auth/google/callback'
   }
 };
