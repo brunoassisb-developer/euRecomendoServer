@@ -44,7 +44,7 @@ exports.index = function (req, res) {
   const articles = Article.list(options);
   const count = Article.count();
 
-  respond(res, 'articles/index', {
+  res.render('articles/index', {
     title: 'Articles',
     articles: articles,
     page: page + 1,
