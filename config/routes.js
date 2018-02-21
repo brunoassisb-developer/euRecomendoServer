@@ -70,7 +70,7 @@ module.exports = function (app, passport) {
   //app.param('userId', users.load);
 
   // article routes
-  app.param('id', articles.load);
+  //app.param('id', articles.load);
   app.get('/articles', articles.index);
   app.get('/articles/new', auth.requiresLogin, articles.new);
   app.post('/articles', auth.requiresLogin, articles.create);
@@ -83,7 +83,7 @@ module.exports = function (app, passport) {
   app.get('/', articles.index);
 
   // comment routes
-  app.param('commentId', comments.load);
+  //app.param('commentId', comments.load);
   app.post('/articles/:id/comments', auth.requiresLogin, comments.create);
   app.get('/articles/:id/comments', auth.requiresLogin, comments.create);
   app.delete('/articles/:id/comments/:commentId', commentAuth, comments.destroy);
