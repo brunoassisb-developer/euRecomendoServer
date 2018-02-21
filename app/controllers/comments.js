@@ -4,8 +4,8 @@
  * Module dependencies.
  */
 
-const { wrap: async } = require('co');
-const { respondOrRedirect } = require('../utils');
+const async = require('co');
+const respondOrRedirect = require('../utils');
 
 /**
  * Load comment
