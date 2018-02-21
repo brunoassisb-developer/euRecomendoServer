@@ -5,9 +5,10 @@
  */
 
 const mongoose = require('mongoose');
-const { wrap: async } = require('co');
+const async = require('co');
 const only = require('only');
-const { respond, respondOrRedirect } = require('../utils');
+const respond = require('../utils');
+const respondOrRedirect = require('../utils');
 const Article = mongoose.model('Article');
 const assign = Object.assign;
 
