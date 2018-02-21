@@ -8,11 +8,11 @@ const mongoose = require('mongoose');
 const User = mongoose.model('User');
 
 const local = require('./passport/local');
-const google = require('./passport/google');
+//const google = require('./passport/google');
 const facebook = require('./passport/facebook');
-const twitter = require('./passport/twitter');
-const linkedin = require('./passport/linkedin');
-const github = require('./passport/github');
+//const twitter = require('./passport/twitter');
+//const linkedin = require('./passport/linkedin');
+//const github = require('./passport/github');
 
 /**
  * Expose
