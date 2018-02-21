@@ -25,7 +25,7 @@ exports.load = function (req, res, next, id) {
 
 exports.create = function (req, res) {
   const article = req.article;
-  yield article.addComment(req.user, req.body);
+  article.addComment(req.user, req.body);
   respondOrRedirect({ res }, `/articles/${article._id}`, article.comments[0]);
 };
 
@@ -34,7 +34,7 @@ exports.create = function (req, res) {
  */
 
 exports.destroy = function (req, res) {
-  yield req.article.removeComment(req.params.commentId);
+  req.article.removeComment(req.params.commentId);
   req.flash('info', 'Removed comment');
   res.redirect('/articles/' + req.article.id);
   respondOrRedirect({ req, res }, `/articles/${req.article.id}`, {}, {
