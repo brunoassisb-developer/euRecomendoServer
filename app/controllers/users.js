@@ -5,7 +5,7 @@
  */
 
 const mongoose = require('mongoose');
-const { wrap: async } = require('co');
+//const { wrap: async } = require('co');
 const { respond } = require('../utils');
 const User = mongoose.model('User');
 
