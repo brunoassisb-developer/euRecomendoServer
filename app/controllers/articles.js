@@ -18,7 +18,7 @@ const assign = Object.assign;
 
 exports.load = function (req, res, next, id) {
   try {
-    req.article = yield Article.load(id);
+    req.article =  Article.load(id);
     if (!req.article) return next(new Error('Article not found'));
   } catch (err) {
     return next(err);
@@ -41,8 +41,8 @@ exports.index = function (req, res) {
 
   if (_id) options.criteria = { _id };
 
-  const articles = yield Article.list(options);
-  const count = yield Article.count();
+  const articles = Article.list(options);
+  const count = Article.count();
 
   respond(res, 'articles/index', {
     title: 'Articles',
@@ -72,7 +72,7 @@ exports.create = function (req, res) {
   const article = new Article(only(req.body, 'title body tags'));
   article.user = req.user;
   try {
-    yield article.uploadAndSave(req.file);
+    article.uploadAndSave(req.file);
     respondOrRedirect({ req, res }, `/articles/${article._id}`, article, {
       type: 'success',
       text: 'Successfully created article!'
@@ -105,7 +105,7 @@ exports.update = function (req, res){
   const article = req.article;
   assign(article, only(req.body, 'title body tags'));
   try {
-    yield article.uploadAndSave(req.file);
+    article.uploadAndSave(req.file);
     respondOrRedirect({ res }, `/articles/${article._id}`, article);
   } catch (err) {
     respond(res, 'articles/edit', {
@@ -132,7 +132,7 @@ exports.show = function (req, res){
  */
 
 exports.destroy = function (req, res) {
-  yield req.article.remove();
+  req.article.remove();
   respondOrRedirect({ req, res }, '/articles', {}, {
     type: 'info',
     text: 'Deleted successfully'
