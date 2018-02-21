@@ -14,7 +14,8 @@ function respond (res, tpl, obj, status) {
   });
 }
 
-function respondOrRedirect (resp = { req, res }, url = '/', obj = {}, flash) {
+function respondOrRedirect (resp, url = '/', obj, flash) {
+  obj = {};
   resp.res.format({
     html: () => {
       if (resp.req && flash) resp.req.flash(flash.type, flash.text);
