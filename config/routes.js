@@ -67,7 +67,7 @@ module.exports = function (app, passport) {
     }), users.signin);
   app.get('/auth/linkedin/callback', pauth('linkedin', fail), users.authCallback);
 
-  app.param('userId', users.load);
+  //app.param('userId', users.load);
 
   // article routes
   app.param('id', articles.load);
