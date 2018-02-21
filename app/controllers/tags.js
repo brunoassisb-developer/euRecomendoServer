@@ -23,8 +23,8 @@ exports.index = function (req, res) {
     criteria: criteria
   };
 
-  const articles = yield Article.list(options);
-  const count = yield Article.count(criteria);
+  const articles =  Article.list(options);
+  const count = Article.count(criteria);
 
   respond(res, 'articles/index', {
     title: 'Articles tagged ' + req.params.tag,
