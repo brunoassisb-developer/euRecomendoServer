@@ -9,7 +9,7 @@ module.exports = {
   facebook: {
     clientID: '176369322980443',
     clientSecret: '0b22968ab175f065d301ed17b5169bd1',
-    callbackURL: 'http://localhost:3000/auth/facebook/callback'
+    callbackURL: 'http://eurecomendo.kinghost.net:21193/auth/facebook/callback'
   },
   twitter: {
     clientID: process.env.TWITTER_CLIENTID,

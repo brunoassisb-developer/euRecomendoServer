@@ -78,7 +78,7 @@ exports.create = function (req, res) {
       text: 'Successfully created article!'
     });
   } catch (err) {
-    respond(res, 'articles/new', {
+	  res.render('articles/new', {
       title: article.title || 'New Article',
       errors: [err.toString()],
       article
